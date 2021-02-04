@@ -21,7 +21,6 @@ router.get('/api/notes', (req, res) => {
 });
 
 
-
 //  notes.getNotes().then((data) => res.json(data))
 //try to find a way to use .catch()
 //     .catch((error) => res.status(200).json(error))
