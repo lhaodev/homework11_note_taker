@@ -10,16 +10,14 @@ const path = require('path');
 //module.exports = (app) => {
 // API GET Requests
 //responds with notes from db.json through Get "/api/notes"
-router.get('/api/notes', (req, res) => {
-
+router.get("/api/notes", (req, res) => {
     try {
-        let notes = JSON.parse(fs.readFileSync('db/db.json', 'utf8'));
+        var notes = JSON.parse(fs.readFileSync('db/db.json', 'utf8'));
         console.log({ notes });
         return res.json(notes);
     } catch (e) {
         console.error(e);
     }
-
 });
 
 
@@ -43,8 +41,7 @@ router.get('/api/notes', (req, res) => {
 //})
 
 
-router.post('/api/notes', (req, res) => {
-
+router.post("/api/notes", (req, res) => {
     try {
         var notes = JSON.parse(fs.readFileSync('db/db.json', 'utf8'));
         var data = req.body;
@@ -54,31 +51,31 @@ router.post('/api/notes', (req, res) => {
     } catch (e) {
         console.error(e);
     }
+});
+
+// let notes = JSON.parse(fs.readFileSync('../db/db.json', 'utf8'));
+// var data = req.body;
+// notes.push(data);
+// fs.writeFileSync('../ db / db.json', JSON.stringify(notes));
+// res.json(notes)
+// fs.writeFile('../db/db.json', JSON.stringif(notes.saveNote(req.body)), function (err, data) {
+//     if (err) {
+//         return console.log(err);
+//     }
+//     res.json(data);
+// });
+
+//  notes.saveNote(req.body).then((data) => res.json(data))
+//     .catch((error) => res.status(200).json(error))
 
 
-    // let notes = JSON.parse(fs.readFileSync('../db/db.json', 'utf8'));
-    // var data = req.body;
-    // notes.push(data);
-    // fs.writeFileSync('../ db / db.json', JSON.stringify(notes));
-    // res.json(notes)
-    // fs.writeFile('../db/db.json', JSON.stringif(notes.saveNote(req.body)), function (err, data) {
-    //     if (err) {
-    //         return console.log(err);
-    //     }
-    //     res.json(data);
-    // });
-
-    //  notes.saveNote(req.body).then((data) => res.json(data))
-    //     .catch((error) => res.status(200).json(error))
-
-})
 
 
-router.delete("/api/notes/:id", (req, res) => {
-    notes.deleteNote(req.params.id).then(() => res.json())
-        .catch((error) => res.status(200).json(error))
+// router.delete("/api/notes/:id", (req, res) => {
+//     notes.deleteNote(req.params.id).then(() => res.json())
+//         .catch((error) => res.status(200).json(error))
 
-})
+// })
 
 
 
