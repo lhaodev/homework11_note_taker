@@ -2,8 +2,8 @@
 // Series of npm packages that we will use to give our server useful functionality
 
 const express = require('express');
-const htmlRoutes = require("./routes/htmlRoutes");
-const apiRoutes = require("./routes/apiRoutes");
+// const htmlRoutes = require("./routes/htmlRoutes");
+// const apiRoutes = require("./routes/apiRoutes");
 
 // EXPRESS CONFIGURATION
 // This sets up the basic properties for our express server
@@ -23,10 +23,10 @@ app.use(express.static("public"));
 // The below points our server to a series of "route" files.
 // These routes give our server a "map" of how to respond when users visit or request data from various URLs.
 
-// require('./routes/apiRoutes')(app);
-// require('./routes/htmlRoutes')(app);
-app.use('/', htmlRoutes);
-app.use(apiRoutes);
+require('./routes/apiRoutes')(app);
+require('./routes/htmlRoutes')(app);
+// app.use('/', htmlRoutes);
+// app.use(apiRoutes);
 //app.use(express.static(__dirname + '/assets/css'));
 
 // LISTENER
@@ -35,3 +35,4 @@ app.use(apiRoutes);
 app.listen(PORT, () => {
     console.log(`App listening on PORT: ${PORT}`);
 });
+
